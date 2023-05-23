@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 from pymongo import MongoClient
 import streamlit as st
-hasil=pd.read_csv('streamlit\hasil.csv')
+hasil=pd.read_csv('streamlit/hasil.csv')
 import plotly.express as px
 
 df = pd.DataFrame(hasil.merk.value_counts()).reset_index()
@@ -23,7 +23,7 @@ fig3= WordCloud(max_font_size=50, max_words=100, background_color="white").gener
 
 
 
-f=open('streamlit\password_mongo.txt','r')
+f=open('streamlit/password_mongo.txt','r')
 j=f.readlines()[0]
 client=MongoClient(f"mongodb+srv://andikakristianto95:{j}@cluster0.nnjfxtd.mongodb.net/?retryWrites=true&w=majority")
 client.list_database_names()
