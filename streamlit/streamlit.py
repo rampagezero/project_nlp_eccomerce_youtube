@@ -5,13 +5,13 @@ import streamlit as st
 hasil=pd.read_csv('streamlit/hasil.csv')
 import plotly.express as px
 
-df = pd.DataFrame(hasil.merk.value_counts()).reset_index()
-fig7 = px.pie(df, values='merk', names=df['index'])
+
 
 
 temp=hasil.groupby('merk').mean()['hasil'].reset_index()
 fig1=px.bar(temp,x=temp['merk'],y=temp['hasil'],title='Rata Rata Sentimen Penilaian Data Youtube')
-
+# df = pd.DataFrame(hasil.merk.value_counts()).reset_index()
+# fig7 = px.pie(df, values='merk', names=df['index'])
 from plotly import graph_objects as go
 timeline=hasil.groupby(['tanggal','merk']).mean().reset_index()
 fig2=px.line(timeline,'tanggal','hasil',color='merk')
