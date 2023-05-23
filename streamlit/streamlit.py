@@ -3,17 +3,19 @@ import plotly.express as px
 from pymongo import MongoClient
 import streamlit as st
 hasil=pd.read_csv('streamlit/hasil.csv')
+f=open('streamlit/password_mongo.txt','r')
 import plotly.express as px
 
 
-
-
-temp=hasil.groupby('merk').mean()['hasil'].reset_index()
-fig1=px.bar(temp,x=temp['merk'],y=temp['hasil'],title='Rata Rata Sentimen Penilaian Data Youtube')
 df = pd.DataFrame(hasil.merk.value_counts()).reset_index()
-fig7 = px.pie(df, values='merk', names=df['index'])
+fig7 = px.pie(df, values=df['merk'], names=df['index'])
+
+
+temp=hasil.groupby(['merk']).mean()['hasil'].reset_index()
+fig1=px.bar(temp,x=temp['merk'],y=temp['hasil'],title='Rata Rata Sentimen Penilaian Data Youtube')
+hasil['tanggal']=pd.to_datetime(hasil['tanggal'])
 from plotly import graph_objects as go
-timeline=hasil.groupby(['tanggal','merk']).mean().reset_index()
+timeline=hasil.groupby([hasil['tanggal'].dt.year,'merk']).mean().reset_index()
 fig2=px.line(timeline,'tanggal','hasil',color='merk')
 fig2.update_layout(title='Rata Rata Penilaian Merk Handphone Dari Waktu ke Waktu')
 from wordcloud import WordCloud
@@ -23,7 +25,7 @@ fig3= WordCloud(max_font_size=50, max_words=100, background_color="white").gener
 
 
 
-f=open('streamlit/password_mongo.txt','r')
+
 j=f.readlines()[0]
 client=MongoClient(f"mongodb+srv://andikakristianto95:{j}@cluster0.nnjfxtd.mongodb.net/?retryWrites=true&w=majority")
 client.list_database_names()
@@ -69,29 +71,38 @@ st.title('E Commerce and Youtube Comment')
 st.write("Dashboard")
 
 with st.container():
-  col1,col2=st.columns(2)
+  col1,col2=st.columns([3,1])
   with col1:
-    st.plotly_chart(fig1,use_container_width=True)
+    st.plotly_chart(fig1,use_container_width=True,)
   with col2:
+    st.subheader('Proporsi Frekuensi Brand pada Komentar Youtube')
     st.plotly_chart(fig7,use_container_width=True)
   
 with st.container():
-  col1,col2=st.columns(2)
+  col1,col2=st.tabs(['trendline rating','rata rata harga'])
   with col1:
     st.plotly_chart(fig2,use_container_width=True)
+  with col2:
+    st.plotly_chart(fig5,use_container_width=True)
+    
+with st.container():
+  col1,col2=st.columns(2)
+  with col1:
     fig, ax = plt.subplots(figsize = (12, 8))
     ax.imshow(fig3)
     plt.axis("off")
     st.pyplot(fig)
   with col2:
     with st.container():
-      st.plotly_chart(fig5,use_container_width=True)
-    with st.container():
-      col1,col2=st.columns(2)
+      col1,col2=st.tabs(['col 1','col 2'])
       with col1:
         st.plotly_chart(fig6,use_container_width=True)
       with col2:
         st.plotly_chart(fig4,use_container_width=True)
+
+    
+
+
 
     
 
