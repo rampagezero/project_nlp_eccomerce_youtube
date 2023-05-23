@@ -6,7 +6,7 @@ hasil=pd.read_csv('streamlit/hasil.csv')
 import plotly.express as px
 
 df = pd.DataFrame(hasil.merk.value_counts()).reset_index()
-# fig7 = px.pie(df, values='merk', names=df.index)
+fig7 = px.pie(df, values='merk', names=df['index'])
 
 
 temp=hasil.groupby('merk').mean()['hasil'].reset_index()
