@@ -66,13 +66,31 @@ fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols')
 fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP')
 st.title('E Commerce and Youtube Comment')
 st.write("Dashboard")
-st.plotly_chart(fig1,position=(0,0,1,1))
-st.plotly_chart(fig2,position=(0.5, 0.75, 0.5, 0.25))
-fig, ax = plt.subplots(figsize = (12, 8))
-ax.imshow(fig3)
-plt.axis("off")
-st.pyplot(fig)
-st.plotly_chart(fig4)
-st.plotly_chart(fig5)
-st.plotly_chart(fig6)
-st.plotly_chart(fig7)
+
+with st.container():
+  col1,col2=st.columns(2)
+  with col1:
+    st.plotly_chart(fig1,use_container_width=True)
+  with col2:
+    st.plotly_chart(fig7,use_container_width=True)
+  
+with st.container():
+  col1,col2=st.columns(2)
+  with col1:
+    st.plotly_chart(fig2,use_container_width=True)
+    fig, ax = plt.subplots(figsize = (12, 8))
+    ax.imshow(fig3)
+    plt.axis("off")
+    st.pyplot(fig)
+  with col2:
+    with st.container():
+      st.plotly_chart(fig5,use_container_width=True)
+    with st.container():
+      col1,col2=st.columns(2)
+      with col1:
+        st.plotly_chart(fig6,use_container_width=True)
+      with col2:
+        st.plotly_chart(fig4,use_container_width=True)
+
+    
+
