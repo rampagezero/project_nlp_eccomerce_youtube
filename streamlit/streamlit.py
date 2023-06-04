@@ -67,11 +67,12 @@ fig5.update_layout(title='Harga Rata Rata masing masing merk pada E Commerce')
 fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols')
 fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP')
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
-st.title('E Commerce and Youtube Comment')
-st.write("Dashboard")
+
 
 col_utama, col_kedua=st.tabs(['dashboard','predictor'])
 with col_utama:
+  st.title('E Commerce and Youtube Comment')
+  st.write("Dashboard")
   with st.container():
     col1,col2=st.columns([3,1])
     with col1:
