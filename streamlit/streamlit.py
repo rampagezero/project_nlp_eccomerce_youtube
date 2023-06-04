@@ -2,8 +2,8 @@ import pandas as pd
 import plotly.express as px
 from pymongo import MongoClient
 import streamlit as st
-hasil=pd.read_csv('C:\\Users\\andik\\Documents\\project\\Project NLP 1\\streamlit_git\\project_nlp_eccomerce_youtube\\streamlit\\hasil.csv')
-f=open('C:\\Users\\andik\\Documents\\project\\Project NLP 1\\streamlit_git\\project_nlp_eccomerce_youtube\\streamlit\\password_mongo.txt','r')
+hasil=pd.read_csv('\streamlit\hasil.csv')
+f=open('\streamlit\password_mongo.txt','r')
 import plotly.express as px
 
 
@@ -108,7 +108,7 @@ with col_kedua:
   import pickle
   import keras.preprocessing as keras_preprcessing
   
-  model_gru=keras.models.load_model("C:\\Users\\andik\\Documents\\project\\Project NLP 1\\streamlit_git\\project_nlp_eccomerce_youtube\\streamlit\\model_lstm_hasil_tokopedia_baru (1)")
+  model_gru=keras.models.load_model("\streamlit\model_lstm_hasil_tokopedia_baru (1)")
 
   # model_gru.summary()
 
