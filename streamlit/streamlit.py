@@ -2,8 +2,8 @@ import pandas as pd
 import plotly.express as px
 from pymongo import MongoClient
 import streamlit as st
-hasil=pd.read_csv('streamlit/hasil.csv')
-f=open('streamlit/password_mongo.txt','r')
+hasil=pd.read_csv('C:\\Users\\andik\\Documents\\project\\Project NLP 1\\streamlit_git\\project_nlp_eccomerce_youtube\\streamlit\\hasil.csv')
+f=open('C:\\Users\\andik\\Documents\\project\\Project NLP 1\\streamlit_git\\project_nlp_eccomerce_youtube\\streamlit\\password_mongo.txt','r')
 import plotly.express as px
 
 
@@ -70,37 +70,80 @@ st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 st.title('E Commerce and Youtube Comment')
 st.write("Dashboard")
 
-with st.container():
-  col1,col2=st.columns([3,1])
-  with col1:
-    st.plotly_chart(fig1,use_container_width=True,)
-  with col2:
-    st.subheader('Proporsi Frekuensi Brand pada Komentar Youtube')
-    st.plotly_chart(fig7,use_container_width=True)
+col_utama, col_kedua=st.tabs(['dashboard','predictor'])
+with col_utama:
+  with st.container():
+    col1,col2=st.columns([3,1])
+    with col1:
+      st.plotly_chart(fig1,use_container_width=True,)
+    with col2:
+      st.subheader('Proporsi Frekuensi Brand pada Komentar Youtube')
+      st.plotly_chart(fig7,use_container_width=True)
+    
+  with st.container():
+    col1,col2=st.tabs(['trendline rating','rata rata harga'])
+    with col1:
+      st.plotly_chart(fig2,use_container_width=True)
+    with col2:
+      st.plotly_chart(fig5,use_container_width=True)
+      
+  with st.container():
+    col1,col2=st.columns(2)
+    with col1:
+      fig, ax = plt.subplots(figsize = (12, 8))
+      ax.imshow(fig3)
+      plt.axis("off")
+      st.pyplot(fig)
+    with col2:
+      with st.container():
+        col1,col2=st.tabs(['col 1','col 2'])
+        with col1:
+          st.plotly_chart(fig6,use_container_width=True)
+        with col2:
+          st.plotly_chart(fig4,use_container_width=True)
+with col_kedua:
+  import tensorflow as tf
+  from tensorflow import keras
+  import streamlit as st
+  import pickle
+  import keras.preprocessing as keras_preprcessing
   
-with st.container():
-  col1,col2=st.tabs(['trendline rating','rata rata harga'])
-  with col1:
-    st.plotly_chart(fig2,use_container_width=True)
-  with col2:
-    st.plotly_chart(fig5,use_container_width=True)
-    
-with st.container():
-  col1,col2=st.columns(2)
-  with col1:
-    fig, ax = plt.subplots(figsize = (12, 8))
-    ax.imshow(fig3)
-    plt.axis("off")
-    st.pyplot(fig)
-  with col2:
-    with st.container():
-      col1,col2=st.tabs(['col 1','col 2'])
-      with col1:
-        st.plotly_chart(fig6,use_container_width=True)
-      with col2:
-        st.plotly_chart(fig4,use_container_width=True)
+  model_gru=keras.models.load_model("C:\\Users\\andik\\Documents\\project\\Project NLP 1\\streamlit_git\\project_nlp_eccomerce_youtube\\streamlit\\model_lstm_hasil_tokopedia_baru (1)")
 
-    
+  # model_gru.summary()
+
+  import pickle
+  with open("tokenizer (1).json", 'rb') as handle:
+        b = handle.read()
+  b=tf.keras.preprocessing.text.tokenizer_from_json(b)
+
+
+
+  st.title('TextReview-Rating Predictor')
+  text=st.text_input('Masukan Review Disini')
+  def predict(text):
+      text=str(text)
+      text=[text]
+      token_matrix=b.texts_to_sequences(text)
+      token_sequence=keras.preprocessing.sequence.pad_sequences(token_matrix,padding='post',maxlen=365)
+      pre=model_gru.predict(token_sequence)
+      global x1
+      for i,j in enumerate(pre.T,1):
+        if j==pre.max():
+          x1=(f'Rating:{i}',f'Prob:{str(j)}')
+      return x1
+  if st.button('Predict Rating'):
+      hasil=predict(text)
+      st.write(x1)
+      
+      
+
+
+
+
+
+
+      
 
 
 
