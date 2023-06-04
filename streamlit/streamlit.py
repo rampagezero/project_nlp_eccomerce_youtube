@@ -108,7 +108,7 @@ with col_kedua:
   import pickle
   import keras.preprocessing as keras_preprcessing
   
-  model_gru=keras.models.load_model("streamlit/model_lstm_hasil_tokopedia_baru (1)")
+  model_gru=keras.models.load_model('streamlit/model_lstm_hasil_tokopedia_baru (1)')
 
   # model_gru.summary()
 
