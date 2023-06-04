@@ -113,7 +113,7 @@ with col_kedua:
   # model_gru.summary()
 
   import pickle
-  with open("tokenizer (1).json", 'rb') as handle:
+  with open("streamlit/tokenizer (1).json", 'rb') as handle:
         b = handle.read()
   b=tf.keras.preprocessing.text.tokenizer_from_json(b)
 
