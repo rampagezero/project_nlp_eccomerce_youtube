@@ -69,7 +69,7 @@ fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 
 
-col_utama, col_kedua=st.tabs(['dashboard','predictor'])
+col_utama, col_kedua=st.tabs(['Dashboard','Predictor'])
 with col_utama:
   st.title('E Commerce and Youtube Comment')
   st.write("Dashboard")
