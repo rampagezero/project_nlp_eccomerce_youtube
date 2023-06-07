@@ -55,7 +55,7 @@ df2['jumlah_terjual']=df2['jumlah_terjual'].astype('int')
 y=df2.groupby('merk').mean()[['jumlah_terjual']].reset_index()
 
 data_korelasi=pd.merge(y,temp,on='merk')
-fig4=px.scatter(data_korelasi,'hasil','jumlah_terjual',trendline='ols')
+fig4=px.scatter(data_korelasi,'hasil','jumlah_terjual',trendline='ols',color='merk')
 fig4.update_layout(title='Correlation between Selling and Rating NLP LSTM Based Youtube Comment')
 
 df2['harga']=df2['harga'].apply(lambda x:x.replace('Rp','').replace('.','')).astype('int')
