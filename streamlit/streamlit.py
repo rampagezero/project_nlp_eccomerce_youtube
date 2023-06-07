@@ -64,7 +64,7 @@ harga=df2.groupby('merk').mean()[['harga']].reset_index().sort_values('harga')
 harga=pd.merge(harga,temp,on='merk')
 fig5=px.bar(harga,x='merk',y='harga',color='merk')
 fig5.update_layout(title='Harga Rata Rata masing masing merk pada E Commerce')
-fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols')
+fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols',color='merk')
 fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP')
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 
