@@ -64,7 +64,7 @@ df2['harga']=df2['harga'].apply(lambda x:x.replace('Rp','').replace('.','')).ast
 harga=df2.groupby('merk').mean()[['harga']].reset_index().sort_values('harga')
 harga=pd.merge(harga,temp,on='merk')
 fig5=px.bar(harga,x='merk',y='harga',color='merk')
-fig5.update_layout(title='Harga Rata Rata masing masing merk pada E Commerce')
+fig5.update_layout(title='Average Handphone Price Based On Tokopedia')
 fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols',color='merk',trendline_scope = 'overall',
                  trendline_color_override = '#6074A1')
 fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP')
@@ -80,11 +80,11 @@ with col_utama:
     with col1:
       st.plotly_chart(fig1,use_container_width=True,)
     with col2:
-      st.subheader('Proporsi Frekuensi Brand pada Komentar Youtube')
+      st.subheader('Brand Frequency Proportion Based On Youtube Comment')
       st.plotly_chart(fig7,use_container_width=True)
     
   with st.container():
-    col1,col2=st.tabs(['trendline rating','rata rata harga'])
+    col1,col2=st.tabs(['Trendline Rating','Average Price'])
     with col1:
       st.plotly_chart(fig2,use_container_width=True)
     with col2:
