@@ -17,7 +17,7 @@ hasil['tanggal']=pd.to_datetime(hasil['tanggal'])
 from plotly import graph_objects as go
 timeline=hasil.groupby([hasil['tanggal'].dt.year,'merk']).mean().reset_index()
 fig2=px.line(timeline,'tanggal','hasil',color='merk')
-fig2.update_layout(title='Rata Rata Penilaian Merk Handphone Dari Waktu ke Waktu')
+fig2.update_layout(title='Average Brand Sentiment Rating From Youtube Comment Year on Year')
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 # Create and generate a word cloud image:
