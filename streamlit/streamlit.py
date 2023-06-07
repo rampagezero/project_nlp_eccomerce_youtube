@@ -12,7 +12,8 @@ fig7 = px.pie(df, values=df['merk'], names=df['index'])
 
 
 temp=hasil.groupby(['merk']).mean()['hasil'].reset_index()
-fig1=px.bar(temp,x=temp['merk'],y=temp['hasil'],title='Average Sentiment Rating Based on Handphone Brand Youtube Comment')
+fig1=px.bar(temp,x=temp['merk'],y=temp['hasil'],title='Average Sentiment Rating Based on Handphone Brand Youtube Comment',color='merk')
+fig1.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
 hasil['tanggal']=pd.to_datetime(hasil['tanggal'])
 from plotly import graph_objects as go
 timeline=hasil.groupby([hasil['tanggal'].dt.year,'merk']).mean().reset_index()
