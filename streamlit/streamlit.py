@@ -93,7 +93,7 @@ with col_utama:
   with st.container():
     col1,col2=st.columns(2)
     with col1:
-      st.title('Youtube Comment on Handphone Product WordCloud')
+      st.subheader('Youtube Comment on Handphone Product WordCloud')
       fig, ax = plt.subplots(figsize = (12, 8))
       ax.imshow(fig3)
       plt.axis("off")
