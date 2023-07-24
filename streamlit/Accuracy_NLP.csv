@@ -1,0 +1,9 @@
+Model;Accuracy
+LSTM Tokopedia;97.92
+GRU Tokopedia;97.87
+RF Tokopedia;97.70
+DT Tokopedia;97.61
+Random Forest Lazada;90.30
+DT Lazada;89.06
+LSTM Lazada;76.35
+GRU Lazada;76.02
