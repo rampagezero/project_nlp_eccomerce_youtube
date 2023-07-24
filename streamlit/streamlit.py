@@ -70,7 +70,7 @@ fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols',color='merk',trendline
                  trendline_color_override = '#6074A1')
 fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP')
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
-
+df_acc=
 
 col_utama, col_kedua=st.tabs(['Dashboard','Predictor'])
 with col_utama:
@@ -106,6 +106,8 @@ with col_utama:
           st.plotly_chart(fig6,use_container_width=True)
         with col2:
           st.plotly_chart(fig4,use_container_width=True)
+    with st.container():
+      px.bar(df_acc,x=df_acc['Accuracy'],y=df_acc['Model'],color=df_acc['Model'])
 with col_kedua:
   import tensorflow as tf
   from tensorflow import keras
