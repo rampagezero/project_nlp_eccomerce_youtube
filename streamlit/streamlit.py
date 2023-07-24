@@ -71,7 +71,7 @@ fig6=px.scatter(harga,x='hasil',y='harga',trendline='ols',color='merk',trendline
 fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP')
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 df_acc=pd.read_csv('streamlit/Accuracy_NLP.csv',sep=';')
-
+fig_acc=px.bar(df_acc,x=df_acc['Accuracy'],y=df_acc['Model'],color=df_acc['Model'])
 col_utama, col_kedua=st.tabs(['Dashboard','Predictor'])
 with col_utama:
   st.title('E Commerce and Youtube Comment')
@@ -107,8 +107,8 @@ with col_utama:
         with col2:
           st.plotly_chart(fig4,use_container_width=True)
   with st.container():
-    st.subheader('Model Accuracy')
-    px.bar(df_acc,x=df_acc['Accuracy'],y=df_acc['Model'],color=df_acc['Model'])
+      st.subheader('Model Accuracy')
+      st.plotly_chart(fig_acc,use_container_width=True)
 with col_kedua:
   import tensorflow as tf
   from tensorflow import keras
