@@ -151,7 +151,9 @@ with col_ketiga:
   fig_akurasi_twitter.update_layout(title='Algoritma Akurasi Twitter')
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
   fig_akurasi_twitter.update_layout(title='Algoritma Akurasi Algoritma Comment E Commerce')
+  with st.container():
   st.plotly_chart(fig_akurasi_twitter)
+  with st.container():
   st.plotly_chart(fig_akurasi_algoritma)
       
 
