@@ -1,0 +1,5 @@
+model;akurasi
+algoritma decision tree;0.749
+algoiritma KNN;0.85
+algoriitma stoch gradient decent;0.863
+algoritma Knaive Bayyes;0.886

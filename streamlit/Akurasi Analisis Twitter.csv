@@ -1,0 +1,5 @@
+model;akurasi
+Gaussian NB;0.375
+Multinomiial NB;0.75
+Complement NB;0.75
+bernouli NB;0.75
