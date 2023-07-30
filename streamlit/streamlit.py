@@ -72,7 +72,7 @@ fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 df_acc=pd.read_csv('streamlit/Accuracy_NLP.csv',sep=';')
 fig_acc=px.bar(df_acc,x=df_acc['Accuracy'],y=df_acc['Model'],color=df_acc['Model'])
-col_utama, col_kedua=st.tabs(['Dashboard','Predictor'])
+col_utama, col_kedua,col_ketiga=st.tabs(['Dashboard','Predictor','Komparasi Model'])
 with col_utama:
   st.title('E Commerce and Youtube Comment')
   st.write("Dashboard")
@@ -118,6 +118,7 @@ with col_kedua:
   
   model_gru=keras.models.load_model('streamlit/model_lstm_hasil_tokopedia_baru (1)')
 
+  
   # model_gru.summary()
 
   import pickle
@@ -143,7 +144,13 @@ with col_kedua:
   if st.button('Predict Rating'):
       hasil=predict(text)
       st.write(x1)
-      
+with col_ketiga:
+  data_akurasi_twitter=pd.read_excel('streamlit/Akurasi Analisis Twitter.xlsx')
+  data_akurasi_algoritma=pd.read_excel('streamlit/Akurasi Komparasi Algoritma.xlsx)
+  fig_akurasi_twitter=px.line(data_akurasi_twitter,x=data_akurasi_twitter['model'],y=data_akurasi_twitter['akurasi'])
+  fig_akurasi_algoritma=px.line(data_akurasi_twitter,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'])
+  st.plotly_chart(fig_akurasi_twitter)
+  st.plotly_chart(fig_akurasi_algoritma)
       
 
 
