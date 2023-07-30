@@ -145,8 +145,8 @@ with col_kedua:
       hasil=predict(text)
       st.write(x1)
 with col_ketiga:
-  data_akurasi_twitter=pd.read_excel('streamlit/Akurasi Analisis Twitter.xlsx')
-  data_akurasi_algoritma=pd.read_excel('streamlit/Akurasi Komparasi Algoritma.xlsx')
+  data_akurasi_twitter=pd.read_csv('streamlit/Akurasi Analisis Twitter.csv')
+  data_akurasi_algoritma=pd.read_csv('streamlit/Akurasi Komparasi Algoritma.csv')
   fig_akurasi_twitter=px.line(data_akurasi_twitter,x=data_akurasi_twitter['model'],y=data_akurasi_twitter['akurasi'])
   fig_akurasi_algoritma=px.line(data_akurasi_twitter,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'])
   st.plotly_chart(fig_akurasi_twitter)
