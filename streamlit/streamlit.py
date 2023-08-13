@@ -150,7 +150,7 @@ with col_ketiga:
   fig_akurasi_twitter=px.line(data_akurasi_twitter,x=data_akurasi_twitter['model'],y=data_akurasi_twitter['akurasi'],markers=True)
   fig_akurasi_twitter.update_layout(title='Algoritma Akurasi Twitter')
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
-  fig_akurasi_algoritma.update_layout(title='Algoritma Akurasi Algoritma Comment E Commerce')
+  fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts',xaxis_title="Model", yaxis_title="Accuracy")
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
