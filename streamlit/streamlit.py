@@ -72,7 +72,7 @@ fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 df_acc=pd.read_csv('streamlit/Accuracy_NLP.csv',sep=';')
 fig_acc=px.bar(df_acc,x=df_acc['Accuracy'],y=df_acc['Model'],color=df_acc['Model'])
-col_utama, col_kedua,col_ketiga=st.tabs(['Dashboard','Predictor','Komparasi Model'])
+col_utama, col_kedua,col_ketiga=st.tabs(['Dashboard','Predictor','Model Comparison'])
 with col_utama:
   st.title('E Commerce and Youtube Comment')
   st.write("Dashboard")
@@ -148,7 +148,7 @@ with col_ketiga:
   data_akurasi_twitter=pd.read_csv('streamlit/Akurasi Analisis Twitter.csv',sep=';')
   data_akurasi_algoritma=pd.read_csv('streamlit/Akurasi Komparasi Algoritma.csv',sep=';')
   fig_akurasi_twitter=px.line(data_akurasi_twitter,x=data_akurasi_twitter['model'],y=data_akurasi_twitter['akurasi'],markers=True)
-  fig_akurasi_twitter.update_layout(title='Algoritma Akurasi Twitter')
+  fig_akurasi_twitter.update_layout(title='Accuracy Twitter Algorithm Comparison',xaxis_title="Model", yaxis_title="Accuracy")
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
   fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts',xaxis_title="Model", yaxis_title="Accuracy")
   with st.container():
