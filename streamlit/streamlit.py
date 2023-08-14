@@ -145,7 +145,7 @@ with col_kedua:
       hasil=predict(text)
       st.write(x1)
 with col_ketiga:
-  df_komparasi=pd.read_excel('sentiment_ecommerce.xlsx')
+  df_komparasi=pd.read_csv('sentiment_ecommerce.csv')
   df_komparasi_fix=df_komparasi.melt(id_vars=df_komparasi.iloc[:,0:1],var_name=['ecommerce'],value_vars=df_komparasi.loc[:,["Shopee","Tokopedia","Bukalapak","Lazada"]])
   fig_komparasi_sentiment=px.line(df_komparasi_fix,x=df_komparasi_fix.iloc[:,0],color='ecommerce',y='value',markers='o',text='value')
   fig_komparasi_sentiment.update_traces(textposition="top right")
