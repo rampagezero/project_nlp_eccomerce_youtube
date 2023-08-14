@@ -145,16 +145,27 @@ with col_kedua:
       hasil=predict(text)
       st.write(x1)
 with col_ketiga:
+  df_komparasi=pd.read_excel('sentiment_ecommerce.xlsx')
+  df_komparasi_fix=df_komparasi.melt(id_vars=df_komparasi.iloc[:,0:1],var_name=['ecommerce'],value_vars=df_komparasi.loc[:,["Shopee","Tokopedia","Bukalapak","Lazada"]])
+  fig_komparasi_sentiment=px.line(df_komparasi_fix,x=df_komparasi_fix.iloc[:,0],color='ecommerce',y='value',markers='o',text='value')
+  fig_komparasi_sentiment.update_traces(textposition="top right")
+  fig_komparasi_sentiment.update_layout(
+  autosize=False,
+  width=1200,
+  height=500,)
+  fig_komparasi_sentiment.update_layout(title='E Commerce Sentiment Trend 2020-2022')
   data_akurasi_twitter=pd.read_csv('streamlit/Akurasi Analisis Twitter.csv',sep=';')
   data_akurasi_algoritma=pd.read_csv('streamlit/Akurasi Komparasi Algoritma.csv',sep=';')
   fig_akurasi_twitter=px.line(data_akurasi_twitter,x=data_akurasi_twitter['model'],y=data_akurasi_twitter['akurasi'],markers=True)
-  fig_akurasi_twitter.update_layout(title='Accuracy Twitter Algorithm Comparison',xaxis_title="Model", yaxis_title="Accuracy")
+  fig_akurasi_twitter.update_layout(title='Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts',xaxis_title="Model", yaxis_title="Accuracy")
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
-  fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts',xaxis_title="Model", yaxis_title="Accuracy")
+  fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on Tokopedia,buka lapak,shopee dan lazada accounts e-commerce',xaxis_title="Model", yaxis_title="Accuracy")
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
     st.plotly_chart(fig_akurasi_algoritma)
+  with st.container():
+    st.plotly_chart(fig_komparasi_sentiment)
       
 
 
