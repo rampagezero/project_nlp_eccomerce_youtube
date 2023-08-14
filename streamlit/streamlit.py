@@ -152,7 +152,7 @@ with col_ketiga:
   fig_komparasi_sentiment.update_layout(
   autosize=False,
   width=1200,
-  height=500,)
+  height=500,xaxis_title='Trisemester (x)',yaxis_title='Sentiment Negative (y)')
   fig_komparasi_sentiment.update_layout(title='E Commerce Sentiment Trend 2020-2022')
   data_akurasi_twitter=pd.read_csv('streamlit/Akurasi Analisis Twitter.csv',sep=';')
   data_akurasi_algoritma=pd.read_csv('streamlit/Akurasi Komparasi Algoritma.csv',sep=';')
