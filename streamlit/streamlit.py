@@ -72,7 +72,7 @@ fig6.update_layout(title='Correlation between Price and Rating Youtube Based NLP
 st.set_page_config(page_title='E Commerce and Youtube Comment',layout='wide')
 df_acc=pd.read_csv('streamlit/Accuracy_NLP.csv',sep=';')
 fig_acc=px.bar(df_acc,x=df_acc['Accuracy'],y=df_acc['Model'],color=df_acc['Model'])
-col_utama, col_kedua,col_ketiga=st.tabs(['Dashboard','Predictor','Model Comparison'])
+col_utama, col_kedua,col_ketiga,col_empat=st.tabs(['Dashboard','Predictor','Model Comparison  JD.ID','Model Comparison E Commerce'])
 with col_utama:
   st.title('E Commerce and Youtube Comment')
   st.write("Dashboard")
@@ -160,12 +160,20 @@ with col_ketiga:
   fig_akurasi_twitter.update_layout(title='Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts',xaxis_title="Model", yaxis_title="Accuracy")
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
   fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on Tokopedia,buka lapak,shopee <br> and lazada accounts e-commerce',xaxis_title="Model", yaxis_title="Accuracy")
+  df_proporsi_komen=pd.read_csv('Review.csv',sep=';')
+  fig_proporsi_komen=px.bar(data_ecommerce,x='Source',y='Review',color='Sentimen',barmode='group',color_discrete_map={'Negativ':'Red','Postiv':'Green'})
+  fig_proporsi_komen.update_layout(title='Comment Sentiment Proportion')
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
+    
+with col_empat:
+  with st.container():
+    st.plotly_chart(fig_proporsi_komen)
   with st.container():
     st.plotly_chart(fig_akurasi_algoritma)
   with st.container():
     st.plotly_chart(fig_komparasi_sentiment)
+    
       
 
 
