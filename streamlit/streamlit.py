@@ -167,6 +167,7 @@ with col_ketiga:
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
+    st.title("Wordloud JD.ID Reviews")
     st.image(wordcloud)
 with col_empat:
   with st.container():
