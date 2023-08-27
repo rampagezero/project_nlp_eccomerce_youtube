@@ -84,13 +84,18 @@ with col_utama:
     with col2:
       st.subheader('Brand Frequency Proportion Based On Youtube Comment')
       st.plotly_chart(fig7,use_container_width=True)
+      st.write('Melalui perhitungan data komentar yang terdapat pada youtube didapatkan brand Samsung merupakan brand yang paling sering di bicarakan pada komentar youtube dengan proporsi 25 % dari total komentar yang tersedia.')
+      
     
   with st.container():
     col1,col2=st.tabs(['Trendline Rating','Average Price'])
     with col1:
       st.plotly_chart(fig2,use_container_width=True)
+      st.write('Pada graphic trendline dapat terlihat sentiment rating dari waktu ke waktu. Pengambilan data youtube didapatkan dari tahun 2014 hingga video terbaru 2022. Data ini didapatkan dari API data youtube lalu diproses menggunakan NLP model untuk mendapatkan penilaian sentimentnya. Setiap brand dihitung rata rata per tahunnya sehingga didapatkan data diatas. Pada tahun 2023 setiap brand memiliki penurunan sentiment kecuali pada brand Redmi dan Vivo.')
+      
     with col2:
       st.plotly_chart(fig5,use_container_width=True)
+      st.write('Pada graphic diatas merupakan graphic rata rata harga yang ditawarkan setiap produk pada brand brand yang tersedia. Dapat terlihat bahwa Iphone memiliki rata rata harga tertinggi, disusul dengan brand LG lalu Samsung. ')
       
   with st.container():
     col1,col2=st.columns(2)
@@ -100,16 +105,23 @@ with col_utama:
       ax.imshow(fig3)
       plt.axis("off")
       st.pyplot(fig)
+      st.write('Pada graphic wordcloud diatas terdapat sebagian besar kata kata yang terkandung pada komentar youtube. Setiap kata kata yang sering bermunculan akan memiliki ukuran yang besar dan juga sebaliknya untuk kata kata yang jarang bermunculan.')
+      
     with col2:
       with st.container():
         col1,col2=st.tabs(['col 1','col 2'])
         with col1:
           st.plotly_chart(fig6,use_container_width=True)
+          st.write('Pada graphic regresi diatas merupakan hasil penggambaran hubungan antara harga masing masing brand dengan sentiment rating NLP based pada komentar yang tersedia pada youtube. Dapat terlihat pada gambar semakin tinggi rating semakin rendah harga yang dimiliki. Dapat dikatakan bahwa setiap pelanggan memiliki kecendrungan untuk memberikan komntar positif pada barang barang yang cukup murah sehingga tidak perlu untuk membeli barang dengan harga mahal untuk mendapatkan barang dengan kualitas baik. Brand uang memiliki nilai harga terendah dengan penilaiain yang cukup baik adalah pada brand Xiaomi. ')
+          
         with col2:
           st.plotly_chart(fig4,use_container_width=True)
+          st.write('Pada graphic selanjutnya terdapat gambar yang menunjukan korelasi antara jumlah penjualan yang terjual pada Tokopedia serta korelasinya dengan hasil penilaian sentiment NLP LSTM pada komentar youtube. Dapat terlihat bahwa Xiaomi menunjukan jumlah rating yang paling tinggi, lalu disusul dengan vivo dengan jumlah penjualan tertinggi dengan rating yang cukup baik. ')
+          
   with st.container():
       st.subheader('Model Accuracy')
       st.plotly_chart(fig_acc,use_container_width=True)
+      st.write('Pada pembuatan model NLP (Natural Language Processing) digunakan 2 data komentar serta rating diantaranya eCommerce Tokopedia dan Lazada. Kedua data tersebut akan dijadikan bahan untuk membuat model dengan algo4tima yang sama sehingga nantinya dapat dipilih algortima serta sumber data yang memiliki accuracy terbaik. Melalui graphic diatas dapat dilihat bahwa algoritma LSTM dengan data Tokopedia memiliki model dengan akurasi terbaik. Oleh karena itu model dengan data train Tokopedia akan digunakan untuk memprediksi sentiment yang terdapat pada komentar youtube. ')
 with col_kedua:
   import tensorflow as tf
   from tensorflow import keras
