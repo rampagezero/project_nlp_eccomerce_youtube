@@ -177,11 +177,15 @@ with col_ketiga:
   fig_proporsi_komen=px.bar(df_proporsi_komen,x='Source',y='Review',color='Sentimen',barmode='group',color_discrete_map={'Negativ':'Red','Postiv':'Green'})
   fig_proporsi_komen.update_layout(title='Comment Sentiment Proportion')
   wordcloud=Image.open('download.png')
+  df_jd_id=pd.read_csv('proporsi_jd_id.csv',sep=';')
+  fig_jd_id_prop=px.pie(df_jd_id,values="Label")
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
     st.title("Wordloud JD.ID Reviews")
     st.image(wordcloud)
+  with st.container():
+    st.plotly_chart(fig_jd_id_prop)
 with col_empat:
   with st.container():
     st.plotly_chart(fig_proporsi_komen)
