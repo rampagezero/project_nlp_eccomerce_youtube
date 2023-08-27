@@ -5,7 +5,7 @@ import streamlit as st
 hasil=pd.read_csv('streamlit/hasil.csv')
 f=open('streamlit/password_mongo.txt','r')
 import plotly.express as px
-
+from PIL import Image
 
 df = pd.DataFrame(hasil.merk.value_counts()).reset_index()
 fig7 = px.pie(df, values=df['merk'], names=df['index'])
@@ -163,9 +163,11 @@ with col_ketiga:
   df_proporsi_komen=pd.read_csv('Review.csv',sep=';')
   fig_proporsi_komen=px.bar(df_proporsi_komen,x='Source',y='Review',color='Sentimen',barmode='group',color_discrete_map={'Negativ':'Red','Postiv':'Green'})
   fig_proporsi_komen.update_layout(title='Comment Sentiment Proportion')
+  wordcloud=Image.open('download.png')
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
-    
+  with st.container():
+    st.image(wordcloud)
 with col_empat:
   with st.container():
     st.plotly_chart(fig_proporsi_komen)
