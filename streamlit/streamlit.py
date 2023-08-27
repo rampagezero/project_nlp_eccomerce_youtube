@@ -185,7 +185,9 @@ with col_ketiga:
     st.title("Wordloud JD.ID Reviews")
     st.image(wordcloud)
   with st.container():
+    st.title("Proportion JD ID Sentiment Comment")
     st.plotly_chart(fig_jd_id_prop)
+    
 with col_empat:
   with st.container():
     st.plotly_chart(fig_proporsi_komen)
