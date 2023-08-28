@@ -174,7 +174,7 @@ with col_ketiga:
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
   fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on Tokopedia,buka lapak,shopee <br> and lazada accounts e-commerce',xaxis_title="Model", yaxis_title="Accuracy")
   df_proporsi_komen=pd.read_csv('Review.csv',sep=';')
-  fig_proporsi_komen=px.bar(df_proporsi_komen,x='Source',y='Review',color='Sentimen',barmode='group',color_discrete_map={'Negativ':'Red','Postiv':'Green'})
+  fig_proporsi_komen=px.bar(df_proporsi_komen,x='Source',y='Review',color='Sentimen',barmode='group')
   fig_proporsi_komen.update_layout(title='Comment Sentiment Proportion')
   wordcloud=Image.open('download.png')
   df_jd_id=pd.read_csv('proporsi_jd_id.csv',sep=';')
