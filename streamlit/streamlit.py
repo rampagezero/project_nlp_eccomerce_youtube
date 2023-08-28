@@ -178,7 +178,7 @@ with col_ketiga:
   fig_proporsi_komen.update_layout(title='Comment Sentiment Proportion')
   wordcloud=Image.open('download.png')
   df_jd_id=pd.read_csv('proporsi_jd_id.csv',sep=';')
-  fig_jd_id_prop=px.pie(df_jd_id,values="Label",names='Sentiment',color_discrete_map={"Negative":"Red","Positive":"Green","Neutral":"Blue"})
+  fig_jd_id_prop=px.pie(df_jd_id,values="Label",names='Sentiment',color='Sentiment',color_discrete_map={"Negative":"Red","Positive":"Green","Neutral":"Blue"})
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
