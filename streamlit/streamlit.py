@@ -170,7 +170,7 @@ with col_ketiga:
   data_akurasi_twitter=pd.read_csv('streamlit/Akurasi Analisis Twitter.csv',sep=';')
   data_akurasi_algoritma=pd.read_csv('streamlit/Akurasi Komparasi Algoritma.csv',sep=';')
   fig_akurasi_twitter=px.line(data_akurasi_twitter,x=data_akurasi_twitter['model'],y=data_akurasi_twitter['akurasi'],markers=True)
-  fig_akurasi_twitter.update_layout(title='Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts',xaxis_title="Model", yaxis_title="Accuracy")
+  fig_akurasi_twitter.update_layout(xaxis_title="Model", yaxis_title="Accuracy")
   fig_akurasi_algoritma=px.line(data_akurasi_algoritma,x=data_akurasi_algoritma['model'],y=data_akurasi_algoritma['akurasi'],markers=True)
   fig_akurasi_algoritma.update_layout(title='Accuracy algorithm comparison on buyer comments on Tokopedia,buka lapak,shopee <br> and lazada accounts e-commerce',xaxis_title="Model", yaxis_title="Accuracy")
   df_proporsi_komen=pd.read_csv('Review.csv',sep=';')
@@ -181,6 +181,7 @@ with col_ketiga:
   fig_jd_id_prop=px.pie(df_jd_id,values="Label",names='Sentiment',color='Sentiment',color_discrete_map={"Negative":"Red","Positive":"Green","Neutral":"Blue"})
   fig_jd_id_prop.update_layout(font_size=20)
   with st.container():
+    st.title('Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts')
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
     st.title("Wordloud JD.ID Reviews")
