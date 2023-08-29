@@ -77,7 +77,7 @@ with col_utama:
   st.title('E Commerce and Youtube Comment')
   st.write("Dashboard")
   with st.container():
-    col1,col2=st.columns([3,1])
+    col1,col2=st.columns([3,2])
     with col1:
       st.plotly_chart(fig1,use_container_width=True)
       with st.expander('Penjelasan'):
@@ -85,7 +85,8 @@ with col_utama:
     with col2:
       st.subheader('Brand Frequency Proportion Based On Youtube Comment')
       st.plotly_chart(fig7)
-      st.write('Melalui perhitungan data komentar yang terdapat pada youtube didapatkan brand Samsung merupakan brand yang paling sering di bicarakan pada komentar youtube dengan proporsi 25 % dari total komentar yang tersedia.')
+      with st.expander('Penjelasan'):
+        st.write('Melalui perhitungan data komentar yang terdapat pada youtube didapatkan brand Samsung merupakan brand yang paling sering di bicarakan pada komentar youtube dengan proporsi 25 % dari total komentar yang tersedia.')
       
     
   with st.container():
