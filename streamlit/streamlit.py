@@ -79,8 +79,9 @@ with col_utama:
   with st.container():
     col1,col2=st.columns([3,1])
     with col1:
-      st.plotly_chart(fig1,use_container_width=True,)
-      st.write('Sentimen penilaian yang didapat dari penilaian handphone berasal dari tautan komentar yang tersedia pada Channel Youtube tech reviewer. Setiap komentar yang terdapat pada database diambil menggunakan youtube open data API. Sebelum menganalisa sentiment pada brand, pembuatan model dilakukan dengan menggunakan deep learning tensorflow dengan menggunakan data komentator review beserta rating yang dibangun pada Tokopedia dan Lazada. Beberapa algoritma yang dipilih untuk menjadi sentiment rating predictor diantaranya LSTM, GRU , Random Forest serta Decision Tree. Setelah model sudah terbuat maka setiap komen akan dipilah berdasarkan brandnya lalu diprediksi nilai sentiment yang muncul pada brand average rating graphic diatas. Dapat terlihat bahwa Xiaomi merupakan brand yang memiliki tingkat sentiment paling baik diantara brand brand lain diikuti oleh Vivo dan Sony. ')
+      st.plotly_chart(fig1,use_container_width=True)
+      with st.expander('Penjelasan'):
+        st.write('Sentimen penilaian yang didapat dari penilaian handphone berasal dari tautan komentar yang tersedia pada Channel Youtube tech reviewer. Setiap komentar yang terdapat pada database diambil menggunakan youtube open data API. Sebelum menganalisa sentiment pada brand, pembuatan model dilakukan dengan menggunakan deep learning tensorflow dengan menggunakan data komentator review beserta rating yang dibangun pada Tokopedia dan Lazada. Beberapa algoritma yang dipilih untuk menjadi sentiment rating predictor diantaranya LSTM, GRU , Random Forest serta Decision Tree. Setelah model sudah terbuat maka setiap komen akan dipilah berdasarkan brandnya lalu diprediksi nilai sentiment yang muncul pada brand average rating graphic diatas. Dapat terlihat bahwa Xiaomi merupakan brand yang memiliki tingkat sentiment paling baik diantara brand brand lain diikuti oleh Vivo dan Sony. ')
     with col2:
       st.subheader('Brand Frequency Proportion Based On Youtube Comment')
       st.plotly_chart(fig7)
