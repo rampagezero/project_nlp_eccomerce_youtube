@@ -184,8 +184,8 @@ with col_ketiga:
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
     st.title("Wordloud JD.ID Reviews")
-    300,200=wordcloud.size
-    st.image(wordcloud)
+    im=wordcloud.resize(300,200)
+    st.image(im)
   with st.container():
     st.title("Proportion JD ID Sentiment Comment")
     st.plotly_chart(fig_jd_id_prop)
