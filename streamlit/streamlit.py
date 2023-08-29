@@ -77,7 +77,7 @@ with col_utama:
   st.title('E Commerce and Youtube Comment')
   st.write("Dashboard")
   with st.container():
-    col1,col2=st.columns([3,2])
+    col1,col2=st.columns([5,2])
     with col1:
       st.plotly_chart(fig1,use_container_width=True)
       with st.expander('Penjelasan'):
