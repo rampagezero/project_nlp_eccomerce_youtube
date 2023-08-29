@@ -83,7 +83,7 @@ with col_utama:
       st.write('Sentimen penilaian yang didapat dari penilaian handphone berasal dari tautan komentar yang tersedia pada Channel Youtube tech reviewer. Setiap komentar yang terdapat pada database diambil menggunakan youtube open data API. Sebelum menganalisa sentiment pada brand, pembuatan model dilakukan dengan menggunakan deep learning tensorflow dengan menggunakan data komentator review beserta rating yang dibangun pada Tokopedia dan Lazada. Beberapa algoritma yang dipilih untuk menjadi sentiment rating predictor diantaranya LSTM, GRU , Random Forest serta Decision Tree. Setelah model sudah terbuat maka setiap komen akan dipilah berdasarkan brandnya lalu diprediksi nilai sentiment yang muncul pada brand average rating graphic diatas. Dapat terlihat bahwa Xiaomi merupakan brand yang memiliki tingkat sentiment paling baik diantara brand brand lain diikuti oleh Vivo dan Sony. ')
     with col2:
       st.subheader('Brand Frequency Proportion Based On Youtube Comment')
-      st.plotly_chart(fig7,use_container_width=True)
+      st.plotly_chart(fig7)
       st.write('Melalui perhitungan data komentar yang terdapat pada youtube didapatkan brand Samsung merupakan brand yang paling sering di bicarakan pada komentar youtube dengan proporsi 25 % dari total komentar yang tersedia.')
       
     
@@ -181,14 +181,14 @@ with col_ketiga:
   fig_jd_id_prop=px.pie(df_jd_id,values="Label",names='Sentiment',color='Sentiment',color_discrete_map={"Negative":"Red","Positive":"Green","Neutral":"Blue"})
   fig_jd_id_prop.update_layout(font_size=20)
   with st.container():
-    st.title('Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts')
+    st.subheader('Accuracy algorithm comparison on buyer comments on JD.ID e-commerce accounts')
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
-    st.title("Wordloud JD.ID Reviews")
+    st.subheader("Wordloud JD.ID Reviews")
     im=wordcloud.resize([600,320])
     st.image(im)
   with st.container():
-    st.title("Proportion JD ID Sentiment Comment")
+    st.subheader("Proportion JD ID Sentiment Comment")
     st.plotly_chart(fig_jd_id_prop)
     
 with col_empat:
