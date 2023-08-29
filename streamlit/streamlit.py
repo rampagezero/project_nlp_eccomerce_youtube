@@ -179,7 +179,7 @@ with col_ketiga:
   wordcloud=Image.open('download.png')
   df_jd_id=pd.read_csv('proporsi_jd_id.csv',sep=';')
   fig_jd_id_prop=px.pie(df_jd_id,values="Label",names='Sentiment',color='Sentiment',color_discrete_map={"Negative":"Red","Positive":"Green","Neutral":"Blue"})
-  fig_jd_id.update_layout(font_size=20)
+  # fig_jd_id.update_layout(font_size=20)
   with st.container():
     st.plotly_chart(fig_akurasi_twitter)
   with st.container():
