@@ -158,15 +158,15 @@ with col_kedua:
       return rate
   if st.button('Predict Rating'):
       hasil=predict(text)
-      if rate==5:
+      if hasil==5:
         st.write(u'\u2B50',u'\u2B50',u'\u2B50',u'\u2B50',u'\u2B50')
-      if rate==4:
+      if hasil==4:
         st.write(u'\u2B50',u'\u2B50',u'\u2B50',u'\u2B50')  
-      if rate==3:
+      if hasil==3:
         st.write(u'\u2B50',u'\u2B50',u'\u2B50')  
-      if rate==2:
+      if hasil==2:
         st.write(u'\u2B50',u'\u2B50')  
-      if rate==1:
+      if hasil==1:
         st.write(u'\u2B50')  
 with col_ketiga:
   df_komparasi=pd.read_csv('sentiment_ecommerce.csv',sep=";")
