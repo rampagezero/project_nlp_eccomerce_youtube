@@ -154,7 +154,8 @@ with col_kedua:
       global x1
       for i,j in enumerate(pre.T,1):
         if j==pre.max():
-          x1=({(print(u'\u2B50'*int(i))},f'Prob:{str(j)}')
+          rate=int(i)
+          x1=print(u'\u2B50'*rate)
       return x1
   if st.button('Predict Rating'):
       hasil=predict(text)
