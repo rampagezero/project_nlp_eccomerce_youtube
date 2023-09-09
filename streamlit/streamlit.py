@@ -155,7 +155,7 @@ with col_kedua:
       for i,j in enumerate(pre.T,1):
         if j==pre.max():
           rate=i
-          prob=int(j)
+          prob=float(j)
       return rate,prob
   if st.button('Predict Rating'):
       hasil,prob=predict(text)
