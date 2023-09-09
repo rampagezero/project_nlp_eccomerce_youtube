@@ -158,7 +158,7 @@ with col_kedua:
       return rate
   if st.button('Predict Rating'):
       hasil=predict(text)
-      st.write(u'\u2B50'*5)
+      st.write(u'\u2B50',u'\u2B50',u'\u2B50',u'\u2B50',u'\u2B50')
 with col_ketiga:
   df_komparasi=pd.read_csv('sentiment_ecommerce.csv',sep=";")
   df_komparasi_fix=df_komparasi.melt(id_vars=df_komparasi.iloc[:,0:1],var_name=['ecommerce'],value_vars=df_komparasi.loc[:,["Shopee","Tokopedia","Bukalapak","Lazada"]])
