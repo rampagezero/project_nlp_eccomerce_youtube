@@ -155,11 +155,10 @@ with col_kedua:
       for i,j in enumerate(pre.T,1):
         if j==pre.max():
           rate=int(i)
-          print(u'\u2B50'*rate)
       return rate
   if st.button('Predict Rating'):
       hasil=predict(text)
-      st.write(x1)
+      st.write(u'\u2B50'*rate)
 with col_ketiga:
   df_komparasi=pd.read_csv('sentiment_ecommerce.csv',sep=";")
   df_komparasi_fix=df_komparasi.melt(id_vars=df_komparasi.iloc[:,0:1],var_name=['ecommerce'],value_vars=df_komparasi.loc[:,["Shopee","Tokopedia","Bukalapak","Lazada"]])
