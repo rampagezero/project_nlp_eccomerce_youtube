@@ -155,8 +155,8 @@ with col_kedua:
       for i,j in enumerate(pre.T,1):
         if j==pre.max():
           rate=int(i)
-          x1=print(u'\u2B50'*rate)
-      return x1
+          print(u'\u2B50'*rate)
+      return rate
   if st.button('Predict Rating'):
       hasil=predict(text)
       st.write(x1)
