@@ -154,7 +154,7 @@ with col_kedua:
       global x1
       for i,j in enumerate(pre.T,1):
         if j==pre.max():
-          rate=int(i)
+          rate=i
       return rate
   if st.button('Predict Rating'):
       hasil=predict(text)
